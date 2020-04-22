@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+
+		<script
+			src="https://kit.fontawesome.com/01b1176063.js"
+			crossorigin="anonymous"
+		></script>
+
+		<title>Grocery List</title>
+	</head>
+	<body class="pt-2">
+		<div class="container bg-light pb-2">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Grocery List</h1>
+					<hr />
+					<form class="input-form">
+						<div class="form-group">
+							<div class="input-field col s12">
+								<input
+									type="text"
+									class="form-control"
+									name="itemInput"
+									id="itemInput"
+									placeholder="Add item"
+								/>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="produceRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Produce
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="packagedRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Packaged
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="refrigeratedRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Refrigerated
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="frozenRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Frozen
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="snacksRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Snacks
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="breadRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Bread
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="householdRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Household
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input
+									class="form-check-input"
+									type="radio"
+									id="miscRadio"
+									name="aisle"
+								/>
+								<label class="form-check-label">
+									Misc
+								</label>
+							</div>
+						</div>
+						<p>
+							<button type="submit" class="btn btn-info btn-block">
+								Add Item
+							</button>
+						</p>
+						<hr />
+						<div class="text-center">
+							<p>
+								<button
+									class="btn btn-info text-center"
+									type="button"
+									data-toggle="collapse"
+									data-target=".multi-collapse"
+									id="expand-all"
+								>
+									Expand All Sections
+								</button>
+							</p>
+						</div>
+					</form>
+					<div class="col-xs-12 col-md-6 float-left">
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection"
+							>
+								Produce
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection">
+							<div class="card card-body">
+								<ul class="list-group list-group-flush" id="produce-list"></ul>
+							</div>
+						</div>
+
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection2"
+							>
+								Packaged
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection2">
+							<div class="card card-body">
+								<ul class="list-group list-group-flush" id="packaged-list"></ul>
+							</div>
+						</div>
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection3"
+							>
+								Refrigerated
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection3">
+							<div class="card card-body">
+								<ul
+									class="list-group list-group-flush"
+									id="refrigerated-list"
+								></ul>
+							</div>
+						</div>
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection4"
+							>
+								Frozen
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection4">
+							<div class="card card-body">
+								<ul class="list-group list-group-flush" id="frozen-list"></ul>
+							</div>
+						</div>
+					</div>
+					<!-- end of column 1 -->
+					<div class="col-xs-12 col-md-6 float-right">
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection5"
+							>
+								Snacks
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection5">
+							<div class="card card-body">
+								<ul class="list-group list-group-flush" id="snacks-list"></ul>
+							</div>
+						</div>
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection6"
+							>
+								Bread
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection6">
+							<div class="card card-body">
+								<ul class="list-group list-group-flush" id="bread-list"></ul>
+							</div>
+						</div>
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection7"
+							>
+								Household
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection7">
+							<div class="card card-body">
+								<ul
+									class="list-group list-group-flush"
+									id="household-list"
+								></ul>
+							</div>
+						</div>
+
+						<p>
+							<button
+								class="btn btn-secondary btn-block"
+								type="button"
+								data-toggle="collapse"
+								data-target="#collection8"
+							>
+								Misc
+							</button>
+						</p>
+						<div class="collapse multi-collapse mb-3" id="collection8">
+							<div class="card card-body">
+								<ul class="list-group list-group-flush" id="misc-list"></ul>
+							</div>
+						</div>
+					</div>
+					<!-- End of column -->
+
+					<div class="clearfix"></div>
+					<!-- Clear float -->
+					<!-- buttons -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 text-center">
+					<button type="button" class="btn btn-dark" id="clear-checked">
+						Clear Checked
+					</button>
+					<button type="button" class="btn btn-dark" id="clear-all">
+						Clear All
+					</button>
+					<hr />
+					<button type="button" class="btn btn-info" id="add-favorites">
+						Add Favorites to List
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"
+		></script>
+		<script src="app.js"></script>
+	</body>
+</html>
