@@ -189,12 +189,215 @@ function strikeItem(e) {
 
 // Delete item
 
+// function removeItem(e) {
+// 	if (e.target.parentElement.classList.contains('delete-item')) {
+// 		// if (confirm('Are you sure?')) {
+
+// 		removeTaskFromLocalStorageProduce(e.target.parentElement.parentElement);
+// 		console.log(e.target.parentElement.parentElement.id);
+// 		if (
+// 			e.target.parentElement.parentElement.parentElement.id === 'produce-list'
+// 		) {
+// 			removeTaskFromLocalStorageProduce(e.target.parentElement.parentElement);
+// 		}
+// 		e.target.parentElement.parentElement.remove();
+// 		// e.preventDefault();
+// 	}
+// }
+// Using switch
+
 function removeItem(e) {
 	if (e.target.parentElement.classList.contains('delete-item')) {
 		// if (confirm('Are you sure?')) {
+
+		removeTaskFromLocalStorageProduce(e.target.parentElement.parentElement);
+		console.log(e.target.parentElement.parentElement.id);
+
+		switch (e.target.parentElement.parentElement.parentElement.id) {
+			case 'produce-list':
+				removeTaskFromLocalStorageProduce(e.target.parentElement.parentElement);
+				break;
+			case 'packaged-list':
+				removeTaskFromLocalStoragePackaged(
+					e.target.parentElement.parentElement
+				);
+				break;
+			case 'refrigerated-list':
+				removeTaskFromLocalStorageRefrigerated(
+					e.target.parentElement.parentElement
+				);
+				break;
+			case 'frozen-list':
+				removeTaskFromLocalStorageFrozen(e.target.parentElement.parentElement);
+				break;
+			case 'snacks-list':
+				removeTaskFromLocalStorageSnacks(e.target.parentElement.parentElement);
+				break;
+			case 'bread-list':
+				removeTaskFromLocalStorageBread(e.target.parentElement.parentElement);
+				break;
+			case 'household-list':
+				removeTaskFromLocalStorageHousehold(
+					e.target.parentElement.parentElement
+				);
+				break;
+			case 'misc-list':
+				removeTaskFromLocalStorageMisc(e.target.parentElement.parentElement);
+				break;
+
+			default:
+				break;
+		}
+
 		e.target.parentElement.parentElement.remove();
 		e.preventDefault();
 	}
+}
+
+// Remove items from local storage
+
+function removeTaskFromLocalStorageProduce(taskItem) {
+	let produces;
+	if (localStorage.getItem('produce') === null) {
+		produces = [];
+	} else {
+		produces = JSON.parse(localStorage.getItem('produce'));
+	}
+
+	produces.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			produces.splice(b, 1);
+
+			console.log(produces);
+		}
+	});
+	localStorage.setItem('produce', JSON.stringify(produces));
+}
+
+function removeTaskFromLocalStoragePackaged(taskItem) {
+	let packageds;
+	if (localStorage.getItem('packaged') === null) {
+		packageds = [];
+	} else {
+		packageds = JSON.parse(localStorage.getItem('packaged'));
+	}
+
+	packageds.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			packageds.splice(b, 1);
+
+			console.log(packageds);
+		}
+	});
+	localStorage.setItem('packaged', JSON.stringify(packageds));
+}
+
+function removeTaskFromLocalStorageRefrigerated(taskItem) {
+	let refrigerateds;
+	if (localStorage.getItem('refrigerated') === null) {
+		refrigerateds = [];
+	} else {
+		refrigerateds = JSON.parse(localStorage.getItem('refrigerated'));
+	}
+
+	refrigerateds.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			refrigerateds.splice(b, 1);
+
+			console.log(refrigerateds);
+		}
+	});
+	localStorage.setItem('refrigerated', JSON.stringify(refrigerateds));
+}
+
+function removeTaskFromLocalStorageFrozen(taskItem) {
+	let frozens;
+	if (localStorage.getItem('frozen') === null) {
+		frozens = [];
+	} else {
+		frozens = JSON.parse(localStorage.getItem('frozen'));
+	}
+
+	frozens.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			frozens.splice(b, 1);
+
+			console.log(frozens);
+		}
+	});
+	localStorage.setItem('frozen', JSON.stringify(frozens));
+}
+
+function removeTaskFromLocalStorageSnacks(taskItem) {
+	let snackss;
+	if (localStorage.getItem('snacks') === null) {
+		snackss = [];
+	} else {
+		snackss = JSON.parse(localStorage.getItem('snacks'));
+	}
+
+	snackss.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			snackss.splice(b, 1);
+
+			console.log(snackss);
+		}
+	});
+	localStorage.setItem('snacks', JSON.stringify(snackss));
+}
+
+function removeTaskFromLocalStorageBread(taskItem) {
+	let breads;
+	if (localStorage.getItem('bread') === null) {
+		breads = [];
+	} else {
+		breads = JSON.parse(localStorage.getItem('bread'));
+	}
+
+	breads.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			breads.splice(b, 1);
+
+			console.log(breads);
+		}
+	});
+	localStorage.setItem('bread', JSON.stringify(breads));
+}
+
+function removeTaskFromLocalStorageHousehold(taskItem) {
+	let households;
+	if (localStorage.getItem('household') === null) {
+		households = [];
+	} else {
+		households = JSON.parse(localStorage.getItem('household'));
+	}
+
+	households.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			households.splice(b, 1);
+
+			console.log(households);
+		}
+	});
+	localStorage.setItem('household', JSON.stringify(households));
+}
+
+function removeTaskFromLocalStorageMisc(taskItem) {
+	let miscs;
+	if (localStorage.getItem('misc') === null) {
+		miscs = [];
+	} else {
+		miscs = JSON.parse(localStorage.getItem('misc'));
+	}
+
+	miscs.forEach(function (a, b) {
+		if (taskItem.textContent === a) {
+			miscs.splice(b, 1);
+
+			console.log(miscs);
+		}
+	});
+	localStorage.setItem('misc', JSON.stringify(miscs));
 }
 
 // Get Items from local storage
@@ -340,14 +543,20 @@ function addFavorites() {
 	let householdFaves = ['Bike wipes', 'Hand soap'];
 	let miscFaves = [];
 
+	//Start of function
 	produceFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+		if (
+			localStorage.getItem('produce') === null ||
+			localStorage.getItem('produce').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
         ><a href="#" class="delete-item float-right"
             ><i class="far fa-trash-alt text-danger"></i
         ></a>`;
-		produceList.append(li);
+			produceList.append(li);
+		}
 	});
 	let produce;
 	if (localStorage.getItem('produce') === null) {
@@ -356,16 +565,24 @@ function addFavorites() {
 		produce = JSON.parse(localStorage.getItem('produce'));
 	}
 	produce = produce.concat(produceFaves);
+	produce = Array.from(new Set(produce));
+
 	localStorage.setItem('produce', JSON.stringify(produce));
+	// End of function
 
 	packagedFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
-        ><a href="#" class="delete-item float-right"
-            ><i class="far fa-trash-alt text-danger"></i
-        ></a>`;
-		packagedList.append(li);
+		if (
+			localStorage.getItem('packaged') === null ||
+			localStorage.getItem('packaged').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+	><a href="#" class="delete-item float-right"
+		><i class="far fa-trash-alt text-danger"></i
+	></a>`;
+			packagedList.append(li);
+		}
 	});
 	let packaged;
 	if (localStorage.getItem('packaged') === null) {
@@ -374,16 +591,24 @@ function addFavorites() {
 		packaged = JSON.parse(localStorage.getItem('packaged'));
 	}
 	packaged = packaged.concat(packagedFaves);
+	packaged = Array.from(new Set(packaged));
+
 	localStorage.setItem('packaged', JSON.stringify(packaged));
+	// End of function
 
 	refrigeratedFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
-        ><a href="#" class="delete-item float-right"
-            ><i class="far fa-trash-alt text-danger"></i
-        ></a>`;
-		refrigeratedList.append(li);
+		if (
+			localStorage.getItem('refrigerated') === null ||
+			localStorage.getItem('refrigerated').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+	><a href="#" class="delete-item float-right"
+		><i class="far fa-trash-alt text-danger"></i
+	></a>`;
+			refrigeratedList.append(li);
+		}
 	});
 	let refrigerated;
 	if (localStorage.getItem('refrigerated') === null) {
@@ -392,16 +617,24 @@ function addFavorites() {
 		refrigerated = JSON.parse(localStorage.getItem('refrigerated'));
 	}
 	refrigerated = refrigerated.concat(refrigeratedFaves);
+	refrigerated = Array.from(new Set(refrigerated));
+
 	localStorage.setItem('refrigerated', JSON.stringify(refrigerated));
+	// End of function
 
 	frozenFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
-        ><a href="#" class="delete-item float-right"
-            ><i class="far fa-trash-alt text-danger"></i
-        ></a>`;
-		frozenList.append(li);
+		if (
+			localStorage.getItem('frozen') === null ||
+			localStorage.getItem('frozen').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+	><a href="#" class="delete-item float-right"
+		><i class="far fa-trash-alt text-danger"></i
+	></a>`;
+			frozenList.append(li);
+		}
 	});
 	let frozen;
 	if (localStorage.getItem('frozen') === null) {
@@ -410,16 +643,24 @@ function addFavorites() {
 		frozen = JSON.parse(localStorage.getItem('frozen'));
 	}
 	frozen = frozen.concat(frozenFaves);
+	frozen = Array.from(new Set(frozen));
+
 	localStorage.setItem('frozen', JSON.stringify(frozen));
+	// End of function
 
 	snacksFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
-        ><a href="#" class="delete-item float-right"
-            ><i class="far fa-trash-alt text-danger"></i
-        ></a>`;
-		snacksList.append(li);
+		if (
+			localStorage.getItem('snacks') === null ||
+			localStorage.getItem('snacks').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+	><a href="#" class="delete-item float-right"
+		><i class="far fa-trash-alt text-danger"></i
+	></a>`;
+			snacksList.append(li);
+		}
 	});
 	let snacks;
 	if (localStorage.getItem('snacks') === null) {
@@ -428,16 +669,24 @@ function addFavorites() {
 		snacks = JSON.parse(localStorage.getItem('snacks'));
 	}
 	snacks = snacks.concat(snacksFaves);
+	snacks = Array.from(new Set(snacks));
+
 	localStorage.setItem('snacks', JSON.stringify(snacks));
+	// End of function
 
 	breadFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
-        ><a href="#" class="delete-item float-right"
-            ><i class="far fa-trash-alt text-danger"></i
-        ></a>`;
-		breadList.append(li);
+		if (
+			localStorage.getItem('bread') === null ||
+			localStorage.getItem('bread').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+	><a href="#" class="delete-item float-right"
+		><i class="far fa-trash-alt text-danger"></i
+	></a>`;
+			breadList.append(li);
+		}
 	});
 	let bread;
 	if (localStorage.getItem('bread') === null) {
@@ -446,16 +695,24 @@ function addFavorites() {
 		bread = JSON.parse(localStorage.getItem('bread'));
 	}
 	bread = bread.concat(breadFaves);
+	bread = Array.from(new Set(bread));
+
 	localStorage.setItem('bread', JSON.stringify(bread));
+	// End of function
 
 	householdFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
-        ><a href="#" class="delete-item float-right"
-            ><i class="far fa-trash-alt text-danger"></i
-        ></a>`;
-		householdList.append(li);
+		if (
+			localStorage.getItem('household') === null ||
+			localStorage.getItem('household').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+	><a href="#" class="delete-item float-right"
+		><i class="far fa-trash-alt text-danger"></i
+	></a>`;
+			householdList.append(li);
+		}
 	});
 	let household;
 	if (localStorage.getItem('household') === null) {
@@ -464,16 +721,24 @@ function addFavorites() {
 		household = JSON.parse(localStorage.getItem('household'));
 	}
 	household = household.concat(householdFaves);
+	household = Array.from(new Set(household));
+
 	localStorage.setItem('household', JSON.stringify(household));
+	// End of function
 
 	miscFaves.forEach(function (item) {
-		const li = document.createElement('li');
-		li.className = 'list-group-item';
-		li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
+		if (
+			localStorage.getItem('misc') === null ||
+			localStorage.getItem('misc').includes(item) == false
+		) {
+			const li = document.createElement('li');
+			li.className = 'list-group-item';
+			li.innerHTML = `<input type="checkbox" class="complete" /><span class="ml-2">${item}</span
         ><a href="#" class="delete-item float-right"
             ><i class="far fa-trash-alt text-danger"></i
         ></a>`;
-		miscList.append(li);
+			miscList.append(li);
+		}
 	});
 	let misc;
 	if (localStorage.getItem('misc') === null) {
@@ -482,7 +747,10 @@ function addFavorites() {
 		misc = JSON.parse(localStorage.getItem('misc'));
 	}
 	misc = misc.concat(miscFaves);
+	misc = Array.from(new Set(misc));
+
 	localStorage.setItem('misc', JSON.stringify(misc));
+	// End of function
 }
 // produce = JSON.parse(localStorage.getItem('produce'));
 
@@ -490,14 +758,16 @@ function addFavorites() {
 
 // clear all items
 function clearAll(e) {
-	produceList.remove();
-	packagedList.remove();
-	refrigeratedList.remove();
-	frozenList.remove();
-	snacksList.remove();
-	breadList.remove();
-	householdList.remove();
-	miscList.remove();
-	localStorage.clear();
-	location.reload();
+	if (confirm('Are you sure?')) {
+		produceList.remove();
+		packagedList.remove();
+		refrigeratedList.remove();
+		frozenList.remove();
+		snacksList.remove();
+		breadList.remove();
+		householdList.remove();
+		miscList.remove();
+		localStorage.clear();
+		location.reload();
+	}
 }
